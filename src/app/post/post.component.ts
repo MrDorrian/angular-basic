@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, DoCheck, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {Post} from '../app.component';
 
 @Component({
@@ -6,13 +6,26 @@ import {Post} from '../app.component';
   templateUrl: './post.component.html',
   styleUrls: ['./post.component.scss']
 })
-export class PostComponent implements OnInit {
+export class PostComponent implements OnInit,
+  OnChanges,
+  DoCheck,
+  AfterContentInit, {
   @Input() post: Post;
 
-  constructor() {
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('ngOnChanges', changes);
   }
 
   ngOnInit(): void {
+    console.log('ngOnInit');
   }
 
+  ngDoCheck(): void {
+    console.log('ngDoCheck');
+  }
+
+  ngAfterContentInit(){
+
+  };
 }
+

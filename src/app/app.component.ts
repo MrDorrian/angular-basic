@@ -14,7 +14,7 @@ export interface Post {
 export class AppComponent {
   posts: Post[] = [
     {title: 'Lorem ipsum dolor sit amet. Nam, similique.', text: 'Lorem ipsum dolor sit amet. Nam, similique.', id: 1},
-    {title: 'Lorem ipsum dolor sit amet. Nam, similique2.', text: 'Lorem ipsum dolor sit amet. Nam, similique2.', id: 1}
+    // {title: 'Lorem ipsum dolor sit amet. Nam, similique2.', text: 'Lorem ipsum dolor sit amet. Nam, similique2.', id: 1}
   ];
 
   updatePosts(post: Post) {
