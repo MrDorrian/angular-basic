@@ -1,12 +1,23 @@
 <div class="container">
   <h1>First Angular Page</h1>
-  <app-post-form
-    (onAdd)="updatePosts($event)"
-  ></app-post-form>
-  <hr/>
-  <app-post
-    *ngFor="let p of posts"
-    [post]="p"
-  >
-  </app-post>
+
+  <p [appStyle]="'red'"
+     [dStyles]="{border:'1px solid blue',fontWeight:'bold'}">Lorem ipsum dolor sit amet, consectetur
+    adipisicing elit.</p>
+  <p [appStyle]="'green'"
+     [dStyles]="{border:'2px solid green',fontWeight:'bold'}">Lorem ipsum dolor sit amet,
+    consectetur adipisicing elit.</p>
+
+
+  <button class="btn" (click)="isVisible =!isVisible">Toggle</button>
+  <!--  <div *ngIf="isVisible" class="wrap">-->
+  <!--    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>-->
+  <!--  </div>-->
+
+
+  <div class="wrap" *appIfnot="!isVisible">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+  </div>
+
+
 </div>
