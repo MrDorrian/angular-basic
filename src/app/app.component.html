@@ -1,23 +1,7 @@
 <div class="container">
-  <h1>First Angular Page</h1>
-
-  <p [appStyle]="'red'"
-     [dStyles]="{border:'1px solid blue',fontWeight:'bold'}">Lorem ipsum dolor sit amet, consectetur
-    adipisicing elit.</p>
-  <p [appStyle]="'green'"
-     [dStyles]="{border:'2px solid green',fontWeight:'bold'}">Lorem ipsum dolor sit amet,
-    consectetur adipisicing elit.</p>
-
-
-  <button class="btn" (click)="isVisible =!isVisible">Toggle</button>
-  <!--  <div *ngIf="isVisible" class="wrap">-->
-  <!--    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>-->
-  <!--  </div>-->
-
-
-  <div class="wrap" *appIfNot="!isVisible">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-  </div>
-
-
+  <h1>Angular Page</h1>
+  <p>Wait for it...{{p | async}}</p>
+  <p>Date: {{date | async | date: 'HH:mm:ss'}}</p>
 </div>
+
+
