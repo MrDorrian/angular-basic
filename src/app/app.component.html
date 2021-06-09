@@ -11,6 +11,9 @@
       >
         <small *ngIf="form.get('email').errors.email">Incorrect Email</small>
         <small *ngIf="form.get('email').errors.required">Enter Email</small>
+        <small *ngIf="form.get('email').errors.restrictedEmail">
+          Email {{form.get('email').value}} incorrect
+        </small>
       </div>
     </div>
 
@@ -29,14 +32,13 @@
       </div>
     </div>
 
-    <div class=" card
-      ">
-      <h2>Adress</h2>
+    <div class="card" formGroupName="address">
+      <h2>Address</h2>
 
       <div class="form-control">
         <label>Country</label>
 
-        <select>
+        <select formControlName="country">
           <option value="ru">Russia</option>
           <option value="ua">Ukraine</option>
           <option value="en">England</option>
@@ -44,18 +46,21 @@
       </div>
 
       <div class="form-control">
-        <input type="text">
+        <input type="text" formControlName="city" placeholder="city">
       </div>
 
-      <button class="btn" type="button">Choose capital</button>
+      <button class="btn" type="button" (click)="setCapital()">Choose capital</button>
     </div>
 
-    <div class="card">
+    <div class="card" formGroupName="skills">
       <h2>Yours Skills</h2>
-      <button class="btn" type="button">Add skill</button>
-      <div class="form-control">
-        <label></label>
-        <input type="text">
+      <button class="btn" type="button" (click)="addSkill()">Add skill</button>
+      <div
+        class="form-control"
+        *ngFor="let control of getFormControlls('skills').controls; let idx = index"
+      >
+        <label>Skill: {{idx + 1}}</label>
+        <input type="text" [formControlName]="idx">
       </div>
     </div>
 
