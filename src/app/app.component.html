@@ -1,7 +1,68 @@
 <div class="container">
-  <h1>Angular Page</h1>
-  <p>Wait for it...{{p | async}}</p>
-  <p>Date: {{date | async | date: 'HH:mm:ss'}}</p>
+  <form class="card" [formGroup]="form" (ngSubmit)="submit()">
+    <h1>Angular Forms</h1>
+
+    <div class="form-control">
+      <label>Email</label>
+      <input type="text" placeholder="Email" formControlName="email">
+      <div
+        *ngIf="form.get('email').invalid && form.get('email').touched"
+        class="validation"
+      >
+        <small *ngIf="form.get('email').errors.email">Incorrect Email</small>
+        <small *ngIf="form.get('email').errors.required">Enter Email</small>
+      </div>
+    </div>
+
+    <div class="form-control">
+      <label>Password</label>
+      <input type="password" placeholder="Password" formControlName="password">
+      <div
+        class="validation"
+        *ngIf="form.get('password').invalid && form.get('password').touched"
+      >
+        <small *ngIf="form.get('password').errors.required">Password can`t be empty</small>
+        <small *ngIf="form.get('password').errors.minlength">
+          Password shooter then {{form.get('password').errors.minlength.requiredLength}}.
+          Current symbols: {{form.get('password').errors.minlength.actualLength}}
+        </small>
+      </div>
+    </div>
+
+    <div class=" card
+      ">
+      <h2>Adress</h2>
+
+      <div class="form-control">
+        <label>Country</label>
+
+        <select>
+          <option value="ru">Russia</option>
+          <option value="ua">Ukraine</option>
+          <option value="en">England</option>
+        </select>
+      </div>
+
+      <div class="form-control">
+        <input type="text">
+      </div>
+
+      <button class="btn" type="button">Choose capital</button>
+    </div>
+
+    <div class="card">
+      <h2>Yours Skills</h2>
+      <button class="btn" type="button">Add skill</button>
+      <div class="form-control">
+        <label></label>
+        <input type="text">
+      </div>
+    </div>
+
+    <button class="btn" type="submit" [disabled]="form.invalid">Send</button>
+  </form>
 </div>
+
+
 
 
